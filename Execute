@@ -1,0 +1,13 @@
+local http = game:GetService("HttpService")
+
+game.Players.PlayerAdded:Connect(function(plr)
+	local function checkForBen ()
+		while wait(1) do
+			local getbanlist = http:GetAsync("https://raw.githubusercontent.com/namezerozero0/RBL/main/Main")
+			if string.find(getbanlist,plr.UserId) then
+				plr:Kick("RBL에 자동으로 밴 처리 되었습니다 항소를 원할시 디스코드서버에 들어와주세요. ( 서버주소 : Dsc.gg/RobloxBanList ) ")
+			end
+		end
+	end
+	checkForBen()
+end)
